@@ -51,7 +51,7 @@ int upServoPosition = 90;
 int downServoPosition = 90;
 
 // Frequency measurement variables
-const int analogPin = 34; // 使用实际的GPIO引脚编号
+const int analogPin = 34; 
 const int threshold = 300;
 unsigned long lastCrossingTime = 0;
 unsigned long frequencyStartTime = 0;
@@ -60,21 +60,21 @@ float frequency = 0.0;
 boolean lastState = false;
 
 // Variables for magnetic sensor readings
-const int hallSensor1Pin = 35; // 使用实际的GPIO引脚编号
-const int hallSensor2Pin = 36; // 使用实际的GPIO引脚编号
-const int digitalPin = 4; // 使用实际的GPIO引脚编号
+const int hallSensor1Pin = 35; 
+const int hallSensor2Pin = 36; 
+const int digitalPin = 4;
 const int numReadings = 10;
 int sensorReadings1[numReadings];
 int sensorReadings2[numReadings];
 int total1 = 0, total2 = 0;
 int magneticFieldDifference = 0;
 unsigned long lastMagneticReadTime = 0;
-const unsigned long magneticReadInterval = 5000; // 5 seconds
+const unsigned long magneticReadInterval = 5000;
 
 // Variables for signal decoding
 char name[5];
 boolean startReceived = false;
-int signalIndex = 0; // 避免与标准库函数冲突
+int signalIndex = 0;
 unsigned long lastBitTime = 0;
 int bitDuration = 1667; // Microseconds for one bit at 600 bps (1/600 * 1E6)
 unsigned long lastSignalCheckTime = 0;
@@ -206,7 +206,6 @@ void task2(void *pvParameter) {
   }
 }
 void startDataUpdate() {
-  // 定期更新lizard信息
   controlTicker.attach(0.1, readLizardSignals);
 }
 
